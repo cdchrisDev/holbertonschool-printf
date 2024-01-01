@@ -9,11 +9,13 @@
 typedef struct spc
 {
 	char *s;
-	int (*Fspc)(va_list arg);
+	int (*Fspc)(char*)(void);
 } spc_t;
 
 int _printf(const char *format, ...);
 char* itoa(int n, char* buffer, int base);
 void reverse(char str[], int length);
+char (*Fsp(char *spcfier)(void arg_spc));
+char *printInt(char *spcfier, int n);
 
 #endif

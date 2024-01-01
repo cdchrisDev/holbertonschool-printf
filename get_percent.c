@@ -4,10 +4,8 @@
  * @spc: string specifier
  * Return: the func
  */
-int (*Fspc(char spcfier, va_list arg))
+int (*Fsp(char *spcfier)(void arg_spc))
 {
-	va_start(arg, format);
-
 	spc_t specs[] = {
 	{"d", printInt},
 	{"i", printInt},
