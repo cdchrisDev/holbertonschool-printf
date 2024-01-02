@@ -1,27 +1,27 @@
 #include "main.h"
 /**
- * printChr - a function to print chars
+ * printChar - a function to print chars
  * @c: a char
- * Return: int
+ * Return: char or string
  */
 int printChr(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 /**
- * printStr - a function to print strings
- * @chars: a string (an array of chars)
+ * printStr - print a string
+ * @str:d a string
  * Return: a string
  */
 int printStr(char *chars)
 {
-        int len = 0;
+	int len = 0;
 
-        while (*chars != '\0')
-        {
-                printChr(*chars);
-                chars++;
-                len++;
-        }
+	while (*chars != '\0')
+	{
+		printChr(*chars);
+		chars++;
+		len++;
+	}
 	return (len);
 }
