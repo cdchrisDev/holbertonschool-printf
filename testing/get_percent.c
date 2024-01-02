@@ -1,4 +1,3 @@
-#include "main.h"
 /**
  * get_percent - get function
  * @spcfier: the spc
@@ -8,7 +7,7 @@
 int get_percent(char spcfier, va_list ap)
 {
         int i = 0;
-	char str;
+        char str;
 
         if (spcfier == 'c') /* char */
                 i += printChr(va_arg(ap, int));
@@ -20,15 +19,19 @@ int get_percent(char spcfier, va_list ap)
 
                 i += printInt(va_arg(ap, int), s, 10);
         }
-        /*else if (spcfier == 'x' || spcfier == 'X')
-        {        HEX
+        else if (spcfier == 'x' || spcfier == 'X')
+        {       /* HEX */
+                char *s = &str;
+
                 i += printDig(va_arg(ap, unsigned int), 16);
         }
         else if (spcfier == 'o' || spcfier == 'O')
         {
-                 octal
+                /* octal */
+                char *s = &str;
+
                 i += printDig(va_arg(ap, unsigned int), 8);
-        }*/
+        }
         else
                 i += write(1, &spcfier, 1);
         return (i);

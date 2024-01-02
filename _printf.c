@@ -1,38 +1,28 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdarg.h>
 #include "main.h"
-/*
- * _printf - a noob duplicate of the printf std function
- * @format: the string formated guide
- * Return: the formated string with its values
+/**
+ * int my_pritnf - a replicate of _printf
+ * @format: a formated string
+ * Return: 
  */
 int _printf(const char *format, ...)
 {
-	int i, len = 0;
-	char *str;
-	va_list arg;
-	va_start(arg, format);
+	va_list ap;
+	int i = 0;
 
-	if (format == NULL)
-		return (-1);
-
+	va_start(ap, format);
 	while (*format != '\0')
 	{
 		if (*format == '%')
-		{
-			format++;
-			if (*format == '%');
-				write(1, &format, 1);
-			else if (format != NULL)
-			{
-				void spcs = va_arg(arg, void);
-				get_percent(*format, spcs);
-			}
-			else
-				return (NULL);
-		}
+			i += get_percent(*(++format), ap);
 		else
-			write(1, &format, 1);
+			i += write(1, format, 1);
+		++format;
 
-		format++;
 	}
+	va_end(ap);
 	return (i);
 }
